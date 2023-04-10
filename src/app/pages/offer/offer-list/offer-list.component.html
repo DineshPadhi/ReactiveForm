@@ -1,0 +1,32 @@
+<div>
+
+  <div class="top-header">
+    <h1>Offer List</h1>
+    <button routerLink="/offer/add-offer" nz-button nzType="primary">Add Offer</button>
+  </div>
+
+  <div>
+    <nz-table #basicTable [nzData]="listOfData">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Code</th>
+          <th>All Time Active</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let offer of getOffers()">
+          <td>{{ offer.name }}</td>
+          <td>{{ offer.code }}</td>
+          <td>{{ offer.allTimeActive }}</td>
+          <td>{{offer.startDate}}</td>
+          <td>{{offer.endDate}}</td>
+          <td><a [routerLink]="['/offer/edit-offer', offer.id]">Edit</a></td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+</div>
